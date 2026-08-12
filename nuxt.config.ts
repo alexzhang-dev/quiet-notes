@@ -45,7 +45,15 @@ export default defineNuxtConfig({
         { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap",
+        },
+        {
+          rel: "stylesheet",
+          href: "/fonts/lxgw-wenkai/lxgwwenkai-regular.css",
+        },
+        {
+          rel: "stylesheet",
+          href: "/fonts/lxgw-wenkai/lxgwwenkai-bold.css",
         },
       ],
       script: [

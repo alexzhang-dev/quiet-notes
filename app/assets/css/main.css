@@ -180,6 +180,7 @@ h1 {
 }
 
 .prose :where(pre) {
+  font-family: var(--mono);
   margin: 0 0 1.25em;
   padding: 1rem 1.1rem;
   border-radius: 0.85rem;
@@ -205,7 +206,7 @@ h1 {
 }
 
 .prose :where(code) {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: var(--mono);
   font-size: 0.9em;
 }
 

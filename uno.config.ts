@@ -37,6 +37,7 @@ export default defineConfig({
     fontFamily: {
       sans: "var(--sans)",
       serif: "var(--serif)",
+      mono: "var(--mono)",
     },
     maxWidth: {
       measure: "var(--measure)",
