@@ -49,12 +49,8 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href: "/fonts/lxgw-wenkai/lxgwwenkai-regular.css",
-        },
-        {
-          rel: "stylesheet",
-          href: "/fonts/lxgw-wenkai/lxgwwenkai-bold.css",
-        },
+          href: "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap",
+        }
       ],
       script: [
         {

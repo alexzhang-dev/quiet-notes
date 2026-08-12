@@ -20,7 +20,7 @@ This opts into Nuxt 5 behavior on Nuxt 4.x ([upgrade guide](https://nuxt.com/doc
 - `content.experimental.sqliteConnector: "better-sqlite3"`
 - CSS variables light/dark (`data-theme` + `prefers-color-scheme`) in `app/assets/css/tokens.css`
 - Shiki custom themes `quiet-light` / `quiet-dark` (`themes/*.json`) bridged to `[data-theme]`
-- Fonts: LXGW WenKai (titles/serif; self-hosted `lxgw-wenkai-webfont` Regular+Bold) + system CJK sans + JetBrains Mono (code, Google Fonts)
+- Fonts: Noto Serif SC / 思源宋体 (titles/serif, Google Fonts) + system CJK sans (body) + JetBrains Mono (code, Google Fonts)
 - Package manager: **pnpm@11.21.0** (`packageManager` field)
 
 ## UnoCSS

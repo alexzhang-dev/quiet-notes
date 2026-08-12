@@ -19,7 +19,7 @@
   --glow-opacity: 0.3;
   --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", Inter, Roboto, "Segoe UI", sans-serif;
-  --serif: "LXGW WenKai", "Noto Serif SC", "Songti SC", Georgia, serif;
+  --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", Georgia, serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   --measure: 34rem;
   --page: 34rem;
