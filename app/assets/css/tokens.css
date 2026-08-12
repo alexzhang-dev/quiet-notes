@@ -1,0 +1,85 @@
+/* Quiet notes — theme tokens (light / dark) */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f7f8f9;
+  --ink: #141414;
+  --ink-rgb: 20, 20, 20;
+  --muted: rgba(20, 20, 20, 0.56);
+  --faint: rgba(20, 20, 20, 0.36);
+  --hair: rgba(20, 20, 20, 0.08);
+  --accent: #f31a7c;
+  --surface: rgba(255, 255, 255, 0.4);
+  --surface-border: rgba(20, 20, 20, 0.08);
+  --cta: #636363;
+  --cta-ink: #ffffff;
+  --avatar-bg: rgba(46, 46, 46, 0.06);
+  --cover-border: rgba(20, 20, 20, 0.04);
+  --glow-opacity: 0.3;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", Inter, Roboto, "Segoe UI", sans-serif;
+  --serif: "Noto Serif SC", "Songti SC", "Source Han Serif SC", Georgia, serif;
+  --measure: 34rem;
+  --page: 34rem;
+  --ease: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: rgb(19, 21, 23);
+  --ink: #ffffff;
+  --ink-rgb: 255, 255, 255;
+  --muted: rgba(255, 255, 255, 0.64);
+  --faint: rgba(255, 255, 255, 0.36);
+  --hair: rgba(255, 255, 255, 0.08);
+  --accent: #f98dbe;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --cta: #ffffff;
+  --cta-ink: rgb(19, 21, 23);
+  --avatar-bg: rgba(255, 255, 255, 0.08);
+  --cover-border: rgba(255, 255, 255, 0.06);
+  --glow-opacity: 0.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: rgb(19, 21, 23);
+    --ink: #ffffff;
+    --ink-rgb: 255, 255, 255;
+    --muted: rgba(255, 255, 255, 0.64);
+    --faint: rgba(255, 255, 255, 0.36);
+    --hair: rgba(255, 255, 255, 0.08);
+    --accent: #f98dbe;
+    --surface: rgba(255, 255, 255, 0.04);
+    --surface-border: rgba(255, 255, 255, 0.08);
+    --cta: #ffffff;
+    --cta-ink: rgb(19, 21, 23);
+    --avatar-bg: rgba(255, 255, 255, 0.08);
+    --cover-border: rgba(255, 255, 255, 0.06);
+    --glow-opacity: 0.5;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page: 48rem;
+    --measure: 48rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --page: 52rem;
+    --measure: 52rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --page: 56rem;
+    --measure: 56rem;
+  }
+}

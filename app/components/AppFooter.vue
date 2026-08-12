@@ -8,5 +8,7 @@ withDefaults(
 </script>
 
 <template>
-  <p class="foot">{{ text }}</p>
+  <p class="page-col pb-12 text-[0.8125rem] text-faint sm:pb-14">
+    {{ text }}
+  </p>
 </template>

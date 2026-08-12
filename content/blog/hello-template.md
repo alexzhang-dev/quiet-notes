@@ -14,3 +14,22 @@ cover: false
 在 `content/blog/` 新建 `.md`，填上 frontmatter，便可出现在索引里。
 
 主题色与透明度阶梯用一套克制的 light / dark tokens——读起来安静，把注意力留给文字。
+
+代码高亮会跟随 `data-theme` 在 github-light / github-dark 之间切换：
+
+```ts
+export default defineNuxtConfig({
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: "github-light",
+            dark: "github-dark",
+          },
+        },
+      },
+    },
+  },
+})
+```

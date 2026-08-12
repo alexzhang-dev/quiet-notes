@@ -35,13 +35,13 @@ function toggle() {
 <template>
   <button
     type="button"
-    class="theme-toggle"
+    class="theme-toggle inline-flex items-center justify-center w-8 h-8 border-0 rounded-full bg-transparent text-faint cursor-pointer transition-colors duration-250 hover:text-ink hover:bg-avatar-bg"
     :aria-label="label"
     title="切换浅色 / 深色"
     @click="toggle"
   >
     <svg
-      class="icon-moon"
+      class="icon-moon w-4 h-4 block"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -55,7 +55,7 @@ function toggle() {
       />
     </svg>
     <svg
-      class="icon-sun"
+      class="icon-sun w-4 h-4"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

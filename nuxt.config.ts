@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxt/content"],
+  modules: ["@nuxt/content", "@unocss/nuxt"],
   ssr: true,
 
   // Opt into Nuxt 5 behavior while staying on Nuxt 4.x
@@ -13,9 +13,19 @@ export default defineNuxtConfig({
     experimental: {
       sqliteConnector: "better-sqlite3",
     },
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: "github-light",
+            dark: "github-dark",
+          },
+        },
+      },
+    },
   },
 
-  css: ["~/assets/css/main.css"],
+  css: ["~/assets/css/tokens.css", "~/assets/css/main.css"],
   app: {
     head: {
       htmlAttrs: { lang: "zh-CN" },

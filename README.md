@@ -1,6 +1,6 @@
 # quiet notes (Nuxt SSG)
 
-安静阅读博客模板 — **Nuxt 4 + @nuxt/content**，静态生成（`nuxt generate`），不是 SPA。
+安静阅读博客模板 — **Nuxt 4 + @nuxt/content + UnoCSS**，静态生成（`nuxt generate`），不是 SPA。
 
 ## Nuxt 5 compatibility
 
@@ -16,10 +16,20 @@ This opts into Nuxt 5 behavior on Nuxt 4.x ([upgrade guide](https://nuxt.com/doc
 
 - Nuxt 4 + `future.compatibilityVersion: 5` (`ssr: true` + `nuxt generate`)
 - `@nuxt/content` v3 collections
+- **UnoCSS** via `@unocss/nuxt` — chrome/layout utilities; article prose stays curated CSS
 - `content.experimental.sqliteConnector: "better-sqlite3"`
-- CSS variables light/dark (`data-theme` + `prefers-color-scheme`)
+- CSS variables light/dark (`data-theme` + `prefers-color-scheme`) in `app/assets/css/tokens.css`
+- Shiki `github-light` / `github-dark` bridged to `[data-theme]`
 - Noto Serif SC
 - Package manager: **pnpm@11.21.0** (`packageManager` field)
+
+## UnoCSS
+
+- Module: `@unocss/nuxt` in `nuxt.config.ts`
+- Config: `uno.config.ts` — `presetWind3` + optional `presetAttributify`
+- Theme colors/fonts map to CSS vars (`bg`, `ink`, `muted`, `faint`, `accent`, `serif`, …)
+- `dark:` variant uses `[data-theme="dark"]` (not `.dark` class)
+- Chrome (header / footer / theme toggle / index list) uses utilities; `.prose` remains hand-tuned
 
 ## Setup
 
@@ -60,6 +70,8 @@ cover: false   # optional; omit for default /cover.png
 
 ## Theme
 
-- Tokens in `app/assets/css/main.css`
+- Tokens: `app/assets/css/tokens.css`
+- Prose / cover / ritual: `app/assets/css/main.css`
 - FOUC boot script in `nuxt.config.ts` `app.head.script`
 - Toggle: `ThemeToggle.vue` → `localStorage["quiet-theme"]`
+- Code blocks: Shiki dual theme follows `[data-theme="light"|"dark"]`

@@ -27,19 +27,40 @@ function formatDate(d: string | Date) {
 
 <template>
   <main class="article">
-    <div class="index-intro">
-      <h1>quiet notes</h1>
-      <p>短文索引。语气先于组件，封面先于装饰。</p>
+    <div class="max-w-measure mt-2 mb-2">
+      <h1 class="mb-3">quiet notes</h1>
+      <p class="text-muted text-base max-w-lg">
+        短文索引。语气先于组件，封面先于装饰。
+      </p>
     </div>
 
-    <ul class="post-list">
-      <li v-for="post in posts || []" :key="post.path">
-        <NuxtLink :to="post.path">
-          <time :datetime="formatDate(post.date).iso">
+    <ul class="list-none m-0 mt-8 p-0 max-w-measure flex flex-col">
+      <li
+        v-for="post in posts || []"
+        :key="post.path"
+        class="border-t border-hair last:border-b"
+      >
+        <NuxtLink
+          class="group flex flex-wrap items-baseline gap-x-5 gap-y-2 py-4 text-inherit"
+          :to="post.path"
+        >
+          <time
+            class="text-sm text-faint tabular-nums shrink-0 min-w-[6.5rem]"
+            :datetime="formatDate(post.date).iso"
+          >
             {{ formatDate(post.date).label }}
           </time>
-          <span class="title">{{ post.title }}</span>
-          <p v-if="post.description" class="desc">{{ post.description }}</p>
+          <span
+            class="font-serif text-[1.0625rem] font-medium text-ink transition-colors duration-250 group-hover:text-accent"
+          >
+            {{ post.title }}
+          </span>
+          <p
+            v-if="post.description"
+            class="basis-full text-sm text-muted m-0 sm:pl-[calc(6.5rem+1.25rem)]"
+          >
+            {{ post.description }}
+          </p>
         </NuxtLink>
       </li>
     </ul>

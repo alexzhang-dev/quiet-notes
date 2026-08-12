@@ -70,9 +70,8 @@ useHead({
       initials="AZ"
     />
 
-    <div class="prose">
-      <ContentRenderer :value="post" />
-    </div>
+    <!-- class on ContentRenderer so prose owns the renderer root -->
+    <ContentRenderer class="prose" :value="post" />
 
     <footer v-if="post.series || next" class="end">
       <span v-if="post.series" class="series">系列 · {{ post.series }}</span>
