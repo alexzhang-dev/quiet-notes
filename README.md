@@ -19,7 +19,7 @@ This opts into Nuxt 5 behavior on Nuxt 4.x ([upgrade guide](https://nuxt.com/doc
 - **UnoCSS** via `@unocss/nuxt` — chrome/layout utilities; article prose stays curated CSS
 - `content.experimental.sqliteConnector: "better-sqlite3"`
 - CSS variables light/dark (`data-theme` + `prefers-color-scheme`) in `app/assets/css/tokens.css`
-- Shiki `github-light` / `github-dark` bridged to `[data-theme]`
+- Shiki custom themes `quiet-light` / `quiet-dark` (`themes/*.json`) bridged to `[data-theme]`
 - Noto Serif SC
 - Package manager: **pnpm@11.21.0** (`packageManager` field)
 
@@ -75,3 +75,12 @@ cover: false   # optional; omit for default /cover.png
 - FOUC boot script in `nuxt.config.ts` `app.head.script`
 - Toggle: `ThemeToggle.vue` → `localStorage["quiet-theme"]`
 - Code blocks: Shiki dual theme follows `[data-theme="light"|"dark"]`
+
+### Shiki themes (quiet-light / quiet-dark)
+
+Custom TextMate themes live in `themes/`:
+
+- `themes/quiet-light.json` — editor bg `#eef0f2` (soft inset on page `#f7f8f9`), ink `#141414`, keywords in accent rose `#d4146a`, muted gray hierarchy for strings/types/comments
+- `themes/quiet-dark.json` — editor bg `#16181a`, ink `#f2f2f2`, keywords `#f98dbe`, low-chroma grays elsewhere
+
+Wired in `nuxt.config.ts` via JSON imports into `content.build.markdown.highlight.theme` (`default` / `dark`). Not github-light / github-dark.

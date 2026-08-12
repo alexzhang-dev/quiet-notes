@@ -1,4 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import quietLight from './themes/quiet-light.json'
+import quietDark from './themes/quiet-dark.json'
+
 export default defineNuxtConfig({
   modules: ["@nuxt/content", "@unocss/nuxt"],
   ssr: true,
@@ -17,8 +20,11 @@ export default defineNuxtConfig({
       markdown: {
         highlight: {
           theme: {
-            default: "github-light",
-            dark: "github-dark",
+            // Custom TextMate themes (objects) — quiet reading palette
+            // @ts-expect-error Nuxt Content accepts ThemeRegistration objects at runtime
+            default: quietLight,
+            // @ts-expect-error Nuxt Content accepts ThemeRegistration objects at runtime
+            dark: quietDark,
           },
         },
       },

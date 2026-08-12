@@ -15,21 +15,22 @@ cover: false
 
 主题色与透明度阶梯用一套克制的 light / dark tokens——读起来安静，把注意力留给文字。
 
-代码高亮会跟随 `data-theme` 在 github-light / github-dark 之间切换：
+代码高亮使用自定义的 `quiet-light` / `quiet-dark`，会跟随 `data-theme` 切换：
 
 ```ts
-export default defineNuxtConfig({
-  content: {
-    build: {
-      markdown: {
-        highlight: {
-          theme: {
-            default: "github-light",
-            dark: "github-dark",
-          },
-        },
-      },
-    },
-  },
-})
+// quiet notes — sample for Shiki
+import type { Note } from './types'
+
+/** Soft inset code on the reading page */
+export function greet(name: string): Note {
+  const count = 3
+  const ok = true
+  if (!ok) {
+    throw new Error('unexpected')
+  }
+  return {
+    title: `hello, ${name}`,
+    minutes: count,
+  }
+}
 ```
