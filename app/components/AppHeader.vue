@@ -6,7 +6,10 @@
       <NuxtLink class="text-sm font-medium tracking-wide text-faint" to="/">
         quiet<em class="not-italic text-muted"> · notes</em>
       </NuxtLink>
-      <ThemeToggle />
+      <div class="flex items-center gap-3">
+        <div id="toc-slot" />
+        <ThemeToggle />
+      </div>
     </div>
   </header>
 </template>

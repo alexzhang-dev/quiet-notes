@@ -41,11 +41,11 @@ function formatDate(d: string | Date) {
         class="border-t border-hair last:border-b"
       >
         <NuxtLink
-          class="group flex flex-wrap items-baseline gap-x-5 gap-y-2 py-4 text-inherit"
+          class="group grid grid-cols-[max-content_minmax(0,1fr)] gap-x-3 gap-y-1 items-baseline py-4 text-inherit"
           :to="post.path"
         >
           <time
-            class="text-sm text-faint tabular-nums shrink-0 min-w-[6.5rem]"
+            class="text-xs text-faint tabular-nums"
             :datetime="formatDate(post.date).iso"
           >
             {{ formatDate(post.date).label }}
@@ -57,7 +57,7 @@ function formatDate(d: string | Date) {
           </span>
           <p
             v-if="post.description"
-            class="basis-full text-xs text-muted m-0 sm:pl-[calc(6.5rem+1.25rem)]"
+            class="col-start-2 text-xs text-muted m-0"
           >
             {{ post.description }}
           </p>

@@ -40,6 +40,8 @@ const coverSrc = computed(() => {
   return typeof c === "string" && c ? c : null
 })
 
+const tocLinks = computed(() => post.value?.body?.toc?.links ?? [])
+
 useHead({
   title: () => post.value?.title || "quiet notes",
   meta: [
@@ -52,6 +54,7 @@ useHead({
 </script>
 
 <template>
+  <ArticleToc v-if="tocLinks.length" :links="tocLinks" />
   <article v-if="post" class="article">
     <div v-if="coverSrc" class="cover">
       <img :src="coverSrc" width="400" height="400" alt="" />
@@ -59,13 +62,7 @@ useHead({
 
     <h1>{{ post.title }}</h1>
 
-    <Byline
-      :author="post.author"
-      :date="post.date"
-      :location="post.location"
-      :minutes="post.minutes"
-      initials="AZ"
-    />
+    <Byline :date="post.date" :minutes="post.minutes" />
 
     <!-- class on ContentRenderer so prose owns the renderer root -->
     <ContentRenderer class="prose" :value="post" />
