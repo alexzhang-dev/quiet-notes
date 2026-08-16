@@ -1,5 +1,12 @@
 /* Quiet notes — theme tokens (light / dark) */
 
+/* Interpolate --bg so html and body fade as one layer on theme toggle. */
+@property --bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f7f8f9;
+}
+
 :root,
 [data-theme="light"] {
   color-scheme: light;

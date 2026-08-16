@@ -79,18 +79,5 @@ useHead({
       <NuxtLink v-if="next" class="more" :to="next.path">下一篇 ›</NuxtLink>
       <NuxtLink v-else class="more" to="/">索引 ›</NuxtLink>
     </footer>
-
-    <aside class="ritual" aria-label="订阅">
-      <p>若你也想收这类短文，留下邮箱即可。不吵，低频。</p>
-      <form action="#" method="post" @submit.prevent>
-        <input
-          type="email"
-          name="email"
-          placeholder="you@example.com"
-          autocomplete="email"
-        />
-        <button type="submit">订阅</button>
-      </form>
-    </aside>
   </article>
 </template>

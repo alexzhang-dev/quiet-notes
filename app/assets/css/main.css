@@ -10,11 +10,12 @@
 
 html {
   background: var(--bg);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  min-height: 100dvh;
+  transition: --bg 0.25s ease;
 }
 
 body {
-  min-height: 100%;
+  min-height: 100dvh;
   font-family: var(--sans);
   background: var(--bg);
   color: var(--ink);
@@ -37,6 +38,27 @@ a:hover {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* Sticky chrome — fade the page color out so content dissolves, not a bar */
+.site-header {
+  isolation: isolate;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: calc(100% + 2.75rem);
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    var(--bg) 40%,
+    color-mix(in srgb, var(--bg) 62%, transparent) 68%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Theme toggle icons — data-theme + prefers-color-scheme */
@@ -295,64 +317,6 @@ html .dark .shiki span {
   color: var(--muted);
 }
 
-/* optional ritual — only at end, quiet */
-.ritual {
-  max-width: var(--measure);
-  margin-top: 2.5rem;
-  padding: 1.25rem 0 0;
-}
-
-.ritual p {
-  font-size: 0.9375rem;
-  line-height: 1.55;
-  color: var(--muted);
-  margin-bottom: 0.85rem;
-}
-
-.ritual form {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.ritual input {
-  flex: 1 1 12rem;
-  min-width: 0;
-  padding: 0.65rem 0.85rem;
-  border-radius: 0.75rem;
-  border: 1px solid var(--surface-border);
-  background: var(--surface);
-  font: inherit;
-  font-size: 0.9375rem;
-  color: var(--ink);
-  outline: none;
-}
-
-.ritual input::placeholder {
-  color: color-mix(in srgb, var(--ink) 32%, transparent);
-}
-
-.ritual input:focus {
-  border-color: color-mix(in srgb, var(--ink) 18%, transparent);
-}
-
-.ritual button {
-  padding: 0.65rem 1rem;
-  border: 0;
-  border-radius: 0.75rem;
-  background: var(--cta);
-  color: var(--cta-ink);
-  font: inherit;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background var(--ease);
-}
-
-.ritual button:hover {
-  filter: brightness(0.92);
-}
-
 @media (min-width: 720px) {
   .cover {
     width: 18.5rem;
@@ -373,14 +337,6 @@ html .dark .shiki span {
   .cover {
     width: 100%;
     margin-bottom: 1.5rem;
-  }
-
-  .ritual form {
-    flex-direction: column;
-  }
-
-  .ritual button {
-    width: 100%;
   }
 }
 
@@ -421,7 +377,6 @@ html .dark .shiki span {
   .prose,
   .byline,
   .end,
-  .ritual,
   h1 {
     max-width: var(--measure);
   }
@@ -444,8 +399,8 @@ html .dark .shiki span {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  a,
-  .ritual button {
+  html,
+  a {
     transition: none;
   }
 }

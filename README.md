@@ -71,7 +71,7 @@ cover: false   # optional; omit for default /cover.png
 ## Theme
 
 - Tokens: `app/assets/css/tokens.css`
-- Prose / cover / ritual: `app/assets/css/main.css`
+- Prose / cover: `app/assets/css/main.css`
 - FOUC boot script in `nuxt.config.ts` `app.head.script`
 - Toggle: `ThemeToggle.vue` → `localStorage["quiet-theme"]`
 - Code blocks: Shiki dual theme follows `[data-theme="light"|"dark"]`
