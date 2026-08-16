@@ -18,24 +18,26 @@ if (!post.value) {
   })
 }
 
-const { data: allPosts } = await useAsyncData("blog-all-for-next", () =>
+const { data: allPosts } = await useAsyncData("blog-index", () =>
   queryCollection("blog")
     .where("draft", "=", false)
-    .order("date", "ASC")
+    .order("date", "DESC")
     .all(),
 )
 
-const next = computed(() => {
+const neighbors = computed(() => {
   const list = allPosts.value || []
   const idx = list.findIndex((x) => x.path === post.value?.path)
-  if (idx < 0) return null
-  return list[idx + 1] ?? null
+  if (idx < 0) return { prev: null, next: null }
+  return {
+    prev: list[idx - 1] ?? null,
+    next: list[idx + 1] ?? null,
+  }
 })
 
-const hideCover = computed(() => post.value?.cover === false)
-const customCover = computed(() => {
+const coverSrc = computed(() => {
   const c = post.value?.cover
-  return typeof c === "string" ? c : null
+  return typeof c === "string" && c ? c : null
 })
 
 useHead({
@@ -51,13 +53,8 @@ useHead({
 
 <template>
   <article v-if="post" class="article">
-    <div v-if="!hideCover" class="cover">
-      <img
-        :src="customCover || '/cover.png'"
-        width="400"
-        height="400"
-        alt=""
-      />
+    <div v-if="coverSrc" class="cover">
+      <img :src="coverSrc" width="400" height="400" alt="" />
     </div>
 
     <h1>{{ post.title }}</h1>
@@ -73,11 +70,14 @@ useHead({
     <!-- class on ContentRenderer so prose owns the renderer root -->
     <ContentRenderer class="prose" :value="post" />
 
-    <footer v-if="post.series || next" class="end">
-      <span v-if="post.series" class="series">系列 · {{ post.series }}</span>
+    <footer class="end">
+      <NuxtLink v-if="neighbors.prev" class="more" :to="neighbors.prev.path">
+        ‹ 上一篇
+      </NuxtLink>
       <span v-else />
-      <NuxtLink v-if="next" class="more" :to="next.path">下一篇 ›</NuxtLink>
-      <NuxtLink v-else class="more" to="/">索引 ›</NuxtLink>
+      <NuxtLink v-if="neighbors.next" class="more" :to="neighbors.next.path">
+        下一篇 ›
+      </NuxtLink>
     </footer>
   </article>
 </template>

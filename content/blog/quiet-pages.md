@@ -6,6 +6,7 @@ author: alexz
 location: 上海
 minutes: 6
 series: 安静界面
+cover: /cover.png
 ---
 
 安静的页面不是把信息藏起来，而是让每一样留下来的东西都有理由。性格交给一张主视觉，其余用字重和透明度说话——颜色先别出场。

@@ -65,7 +65,7 @@ author: alexz
 location: 上海
 minutes: 6
 series: 安静界面
-cover: false   # optional; omit for default /cover.png
+cover: /cover.png   # optional; omit to skip the cover
 ```
 
 ## Theme
@@ -73,7 +73,7 @@ cover: false   # optional; omit for default /cover.png
 - Tokens: `app/assets/css/tokens.css`
 - Prose / cover: `app/assets/css/main.css`
 - FOUC boot script in `nuxt.config.ts` `app.head.script`
-- Toggle: `ThemeToggle.vue` → `localStorage["quiet-theme"]`
+- Toggle: `ThemeToggle.vue` → `localStorage["quiet-theme"]` (`light` / `dark` / `system`)
 - Code blocks: Shiki dual theme follows `[data-theme="light"|"dark"]`
 
 ### Shiki themes (quiet-light / quiet-dark)

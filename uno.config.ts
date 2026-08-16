@@ -50,15 +50,11 @@ export default defineConfig({
       quiet: "cubic-bezier(0.4, 0, 0.2, 1)",
     },
     breakpoints: {
-      xs: "380px",
       sm: "720px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1440px",
     },
   },
   shortcuts: {
-    "page-x": "px-4 sm:px-8 lg:px-10",
+    "page-x": "px-5",
     "page-col": "max-w-page mx-auto page-x",
   },
 })

@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import remarkMath from "remark-math"
+import rehypeKatex from "rehype-katex"
 import quietLight from './themes/quiet-light.json'
 import quietDark from './themes/quiet-dark.json'
 
@@ -12,12 +14,38 @@ export default defineNuxtConfig({
     compatibilityVersion: 5,
   },
 
+  components: {
+    dirs: [
+      { path: "~/components/content", global: true, pathPrefix: false },
+      "~/components",
+    ],
+  },
+
   content: {
     experimental: {
       sqliteConnector: "better-sqlite3",
     },
+    renderer: {
+      alias: {
+        note: "Note",
+      },
+    },
     build: {
       markdown: {
+        remarkPlugins: {
+          "remark-math": {
+            instance: remarkMath,
+          },
+        },
+        rehypePlugins: {
+          "rehype-katex": {
+            instance: rehypeKatex,
+            options: {
+              output: "html",
+              throwOnError: false,
+            },
+          },
+        },
         highlight: {
           theme: {
             // Custom TextMate themes (objects) — quiet reading palette
@@ -31,7 +59,11 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["~/assets/css/tokens.css", "~/assets/css/main.css"],
+  css: [
+    "katex/dist/katex.min.css",
+    "~/assets/css/tokens.css",
+    "~/assets/css/main.css",
+  ],
   app: {
     head: {
       htmlAttrs: { lang: "zh-CN" },

@@ -6,7 +6,6 @@ author: alexz
 location: 上海
 minutes: 2
 series: 安静界面
-cover: false
 ---
 
 这是 Nuxt Content + SSG 版的 quiet notes。结构刻意很少：一篇文章、一条发丝线、必要时一张封面。

@@ -29,7 +29,7 @@ function formatDate(d: string | Date) {
   <main class="article">
     <div class="max-w-measure mt-2 mb-2">
       <h1 class="mb-3">quiet notes</h1>
-      <p class="text-muted text-base max-w-lg">
+      <p class="text-muted text-sm max-w-lg">
         短文索引。语气先于组件，封面先于装饰。
       </p>
     </div>
@@ -51,13 +51,13 @@ function formatDate(d: string | Date) {
             {{ formatDate(post.date).label }}
           </time>
           <span
-            class="font-serif text-[1.0625rem] font-medium text-ink transition-colors duration-250 group-hover:text-accent"
+            class="font-serif text-[0.9375rem] font-medium text-ink transition-colors duration-250 group-hover:text-accent"
           >
             {{ post.title }}
           </span>
           <p
             v-if="post.description"
-            class="basis-full text-sm text-muted m-0 sm:pl-[calc(6.5rem+1.25rem)]"
+            class="basis-full text-xs text-muted m-0 sm:pl-[calc(6.5rem+1.25rem)]"
           >
             {{ post.description }}
           </p>

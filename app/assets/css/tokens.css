@@ -28,8 +28,8 @@
     "Microsoft YaHei", Inter, Roboto, "Segoe UI", sans-serif;
   --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", Georgia, serif;
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  --measure: 34rem;
-  --page: 34rem;
+  --measure: 42rem;
+  --page: 42rem;
   --ease: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -71,23 +71,3 @@
   }
 }
 
-@media (min-width: 1024px) {
-  :root {
-    --page: 48rem;
-    --measure: 48rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  :root {
-    --page: 52rem;
-    --measure: 52rem;
-  }
-}
-
-@media (min-width: 1440px) {
-  :root {
-    --page: 56rem;
-    --measure: 56rem;
-  }
-}

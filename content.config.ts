@@ -13,7 +13,7 @@ export default defineContentConfig({
         location: z.string().optional(),
         minutes: z.number().optional(),
         series: z.string().optional(),
-        cover: z.union([z.boolean(), z.string()]).optional(),
+        cover: z.string().optional(),
         draft: z.boolean().default(false),
       }),
     }),
